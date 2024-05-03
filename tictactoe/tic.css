@@ -1,0 +1,103 @@
+h1 { 
+	
+	margin-bottom: -5px; 
+} 
+p { 
+	margin-bottom: -10px; 
+} 
+.ui { 
+	display: flex; 
+	flex-direction: column; 
+	align-items: center; 
+} 
+.row { 
+	display: flex; 
+} 
+.cell { 
+	border: 1px solid black; 
+	width: 80px; 
+	height: 80px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	font-size: 24px; 
+	text-align: center; 
+	cursor: pointer; 
+}
+.cell:hover{
+    background-color: rgb(154, 210, 250);
+}
+#b1{ 
+	border-bottom: 1px solid black; 
+	border-right: 1px solid black; 
+} 
+
+#b2 { 
+	border-bottom: 1px solid black; 
+	border-right: 1px solid black; 
+	border-left: 1px solid black; 
+} 
+
+#b3 { 
+	border-bottom: 1px solid black; 
+	border-left: 1px solid black; 
+} 
+
+#b4 { 
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black; 
+	border-right: 1px solid black; 
+} 
+	
+#b5 { 
+	border: 1px solid black; 
+} 
+
+#b6 { 
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black; 
+	border-left: 1px solid black; 
+} 
+
+#b7 { 
+	border-top: 1px solid black; 
+	border-right: 1px solid black; 
+} 
+
+#b8 { 
+	border-top: 1px solid black; 
+	border-right: 1px solid black; 
+	border-left: 1px solid black; 
+} 
+
+#b9 { 
+	border-top: 1px solid black; 
+	border-left: 1px solid black; 
+} 
+/* Reset Button */
+#but { 
+	box-sizing: border-box; 
+	width: 7%; 
+	height: 40px; 
+	border: 1px solid black; 
+	margin-left: auto; 
+	border-radius: 8px; 
+	font-family: Verdana, 
+		Geneva, Tahoma, sans-serif; 
+	font-size: 20px; 
+	cursor: pointer; 
+} 
+
+
+/* Main Container */
+#main { 
+	text-align: center; 
+    padding-top:1%
+} 
+
+/* Game Instruction Text */
+#ins { 
+	font-family: Verdana,Geneva, 
+					Tahoma, sans-serif; 
+	color: dodgerblue; 
+}

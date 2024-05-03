@@ -1,0 +1,41 @@
+
+.tieuDe{
+    width:100%;
+    height:50px;
+    background-color:#FFF200;
+    padding-top:0.9%;
+    padding-left:10%;
+    color:black;
+    display:flex;
+
+}
+.tieuDe h3{
+    color:black;
+    
+}
+.khoahoc{
+    display:flex;
+    flex-direction:row;
+    
+}
+.khoaHoc{
+    margin:1%;
+    background-color:white;
+    width:33%;
+    display:flex;
+    position:relative;
+    height:400px;
+    
+}
+.khoaHoc img{
+    border-radius:50px 50px 0px 0px;
+    width:100%;
+    height:300px;
+    border-bottom:5px solid #FFF200;
+}
+.khoaHoc p{
+    padding:1%;
+    padding-left:4%;
+    font-size: large;
+    color:black
+}

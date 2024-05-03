@@ -1,0 +1,194 @@
+<!-- READ ME -->
+<!-- element = ul -> li -> a -> i -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Link thư viện font awsome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>vocavoca</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  
+    
+   
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li > <a href="./index.html"><img style="width: 150px; padding-top:15px" src = " image/logo.png" alt=""></a> </li>
+                <li id="address-form"> <a href="#">Đăng ký khóa học <i class="fa-solid fa-sort-down"></i> </a> </li>
+                <div class="search">
+                    <li ><input type="text" placeholder="Từ khoá hoặc [ID] ">  <i class="fa-solid fa-magnifying-glass"> </i> </li>
+                </div>
+                <!-- <li> <a href="./login.html"></a><button><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng </button></li> -->
+                <li> <a href="./index.html">Trang chủ </a></li>
+                <!-- <li> <a href="./login.html"><span></span>Đăng kí khoá học </a></li> -->
+                <li> <a href="./tài liệu.html">Tài Liệu </a></li>
+                <!-- <li> <a href="./login.html">Hỏi đáp </a></li> -->
+                <!-- <li> <a href="./login.html"><button class="logIn" > Đăng nhập </button> </a></li> -->
+                <!-- Thiết kế form điền địa chỉ khách hàng -->
+                <div class="address-form" style="z-index: 999">
+                    <div class="address-form-contain" >
+                       <h2 style="font-size: 20px;">Đăng ký thông tin học sinh 
+                           <button id="address-close">  
+                               X Đóng
+                           </button>
+                       </h2>
+                       <form action="">
+                           <p>Chọn địa điểm</p>
+                           <select name="">
+                               <option value="#"> --Chọn địa điểm-- </option>
+                               <option value="#"> Đà Nẵng </option>
+                           </select>
+
+                           <select name="">
+                               <option value="#"> --Chọn quận huyện-- </option>
+                               <option value="#"> Đà Nẵng </option>
+                           </select>
+
+                           <select name="">
+                               <option value="#"> --Chọn Phường Xã-- </option>
+                               <option value="#"> Đà Nẵng </option>
+                           </select>
+
+                           <input type="text"placeholder="Khóa học muốn đăng ký ">
+                           <button>Xác nhận</button>
+                           
+                       </form>
+                    </div>
+               </div>       
+            </ul>
+        </div>
+    </nav>
+    <!-- them cac icon vao trang web  -->
+    <section class="menu-bar">
+        <div class="container">
+                <div class="menu-bar-content">
+                    <ul>
+                        <li><a href="về chúng tôi.html"><i class="fa-solid fa-phone"></i>VỀ CHÚNG TÔI  </a></li>
+                        <!-- <li><a href=""><i class="fa-solid fa-book-open"></i>HỌC GÌ?</a></li> -->
+                        
+                        <li><a href="tin tức.html"><i class="fa-solid fa-newspaper"></i>TIN TỨC</a></li>
+                        <li><a href=""><i class="fa-solid fa-tablet"></i>KHÓA HỌC <i style ="margin-left: 6px ;position:absolute;top:45% " , class="fa-solid fa-sort-down"></i></a>
+                        <!-- Thiết kế form sổ xuống trong dấu sort down  -->
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="khóa học phổ thông.html">BẬC PHỔ THÔNG </a></li>
+                                    <li><a href="khóa học đại học.html">BẬC ĐẠI HỌC </a></li>
+                                    <li><a href="khóa học ielts.html">IELTS </a></li>
+                                    <li><a href="khóa học tiểu học.html">TIỂU HỌC</a></li>
+                                    <li><a href="toeic.html">TOEIC</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li><a href="liên hệ.html"><i class="fa-solid fa-envelope"></i>LIÊN HỆ</a></li>
+                        <li><a href="game.html"><i class="fa-solid fa-gamepad"></i></i>MINI GAME</a></li>
+                    </ul>
+                </div>
+        </div>
+    </section>
+    <!-- Slider -->
+    <section class="slider">
+        <div class="container">
+            <div class="slider-content">
+                <div class="slider-content-left">
+                    <div class="slider-content-left-top-container">
+                        <div class="slider-content-left-top">
+                            <a href=""><img src="image/anh2.jpg"></a>
+                            <a href=""><img src="image/anh3.png"></a>
+                            <a href=""><img src="image/anh4.jpg"></a>
+                            <a href=""><img src="image/anh5.jpeg"></a>
+                            <a href=""><img src="image/anh6.webp"></a>
+                            
+                        </div>
+                        <div class="slider-content-left-top-btn">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                       
+                        
+                   
+                    <div class="slider-content-left-bottom" class="active">
+                        <ul>
+                            <li class="active"><a href="./khóa học ielts.html"><button>IELTS</button></a></li>
+                            <li class="active"><a href="./toeic.html"><button>TOEIC</button></a></li>
+                            <li class="active"><a href="./khóa học tiểu học.html"><button>Tiểu học</button></a></li>
+                            <li class="active"><a href="./khóa học đại học.html"><button>Đại học</button></a></li>
+                            <li class="active"><a href="./khóa học phổ thông.html"><button>THPT</button></a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="slider-content-right">
+                    <li><a href=""><img src="image/anh7.jpg"></a></li>
+                    <li><a href=""><img src="image/anh8.webp"></a></li>
+                    <li><a href=""><img src="image/anh9.jpg"></a></li>
+                    <li><a href=""><img src="image/anh10.webp"></a></li>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <div class="intro">
+        <text2 class="textIntro"></text2>
+        <p>
+
+            VOCAVOCA là một nền tảng học ngôn ngữ trực tuyến phổ biến và miễn phí. Trang web này cung cấp một phương pháp học tiếng Anh thông qua các bài tập, trò chơi và các bài học tương tác.
+            
+            Với VOCAVOCA, bạn có thể học từ vựng, ngữ pháp và kỹ năng nghe, nói, đọc và viết tiếng Anh. Trang web sử dụng một phương pháp học không chỉ giúp bạn tiếp thu kiến thức mà còn tạo cảm giác vui vẻ và gây thú vị trong quá trình học.
+            
+            VOCAVOCA cung cấp các bài học phù hợp với trình độ từ cơ bản đến nâng cao. 
+            
+            Nếu bạn đang tìm kiếm một trang web học tiếng Anh đơn giản, hiệu quả và thú vị, VOCAVOCA là một sự lựa chọn tuyệt vời.
+            </p>
+            
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Công ty</h4>
+                    <ul>
+                        <li><a href="về chúng tôi.html">Về chúng tôi</a></li>
+                        <!-- <li><a href="#">Dịch vụ</a></li> -->
+                        <li><a href="chính sách bảo mật.html">Chính sách bảo mật</a></li>
+                        <li><a href="chương trình liên kết.html">Chương trình liên kết</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        
+                        <li><a href="liên hệ.html">Chăm sóc khách hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Khóa học</h4>
+                    <ul>
+                        <li><a href="khóa học ielts.html">IELTS</a></li>
+                        <li><a href="khóa học tiểu học.html">Tiểu học</a></li>
+                        <li><a href="khóa học phổ thông.html">Trung học phổ thông</a></li>
+                        <li><a href="khóa học đại học.html">Đại học</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Theo dõi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+    <script src="index.js"></script>
+</body>
+</html>

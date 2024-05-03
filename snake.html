@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>vocavoca</title>
+      <style>
+        #snakeboard {
+          position: absolute;
+          top: 60%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        #score {
+          text-align: center;
+          font-size: 25px;
+          padding-top:31%;
+          padding-bottom:1%
+        }
+       
+      </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="footer.css">
+        <link rel="stylesheet" href="khóa học.css">
+  </head>
+
+  <body>
+    <nav>
+        <div class="container">
+            <ul>
+                <li > <a href=""><img style="width: 150px; padding-top:15px " src = " image/logo.png" alt="" s></a> </li>
+                <li id="address-form"> <a href="#">Đăng ký khóa học<i class="fa-solid fa-sort-down"></i> </a> </li>
+                <div class="search">
+                    <li ><input type="text" placeholder="Từ khoá hoặc [ID] ">  <i class="fa-solid fa-magnifying-glass"> </i> </li>
+                </div>
+                <!-- <li> <a href="./login.html"></a><button><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng </button></li> -->
+                <li> <a href="index.html">Trang chủ </a></li>
+                
+                <li> <a href="./login.html">Tài Liệu </a></li>
+                
+                <!-- Thiết kế form điền địa chỉ khách hàng -->
+                <div class="address-form" style="z-index: 999">
+                    <div class="address-form-contain" >
+                       <h2>Chọn địa chỉ 
+                           <button id="address-close">  
+                               X 
+                           </button>
+                       </h2>
+                       <form action="">
+                           <p>Chọn địa điểm</p>
+                           <select name="">
+                               <option value="#"> --Chọn địa điểm-- </option>
+                               <option value="#"> Đà Nẵng </option>
+                           </select>
+
+                           <select name="">
+                               <option value="#"> --Chọn quận huyện-- </option>
+                               <option value="#"> Đà Nẵng </option>
+                           </select>
+
+                           <select name="">
+                               <option value="#"> --Chọn Phường Xã-- </option>
+                               <option value="#"> Đà Nẵng </option>
+                           </select>
+
+                           <input type="text"placeholder="Số nhà , tên đường ">
+                           <button>Xác nhận</button>
+                           
+                       </form>
+                    </div>
+               </div>       
+            </ul>
+        </div>
+    </nav>
+    <!-- them cac icon vao trang web  -->
+    <section class="menu-bar">
+        <div class="container">
+                <div class="menu-bar-content">
+                    <ul>
+                        <li><a href="về chúng tôi.html"><i class="fa-solid fa-phone"></i>VỀ CHÚNG TÔI  </a></li>
+                       
+                        <li><a href="tin tức.html"><i class="fa-solid fa-newspaper"></i>TIN TỨC</a></li>
+                        <li><a href=""><i class="fa-solid fa-tablet"></i>KHÓA HỌC <i style ="margin-left: 6px ;position:absolute;top:45%  " , class="fa-solid fa-sort-down"></i></a>
+                        <!-- Thiết kế form sổ xuống trong dấu sort down  -->
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="khóa học phổ thông.html">BẬC PHỔ THÔNG </a></li>
+                                    <li><a href="khóa học đại học.html">BẬC ĐẠI HỌC </a></li>
+                                    <li><a href="khóa học ielts.html">IELTS </a></li>
+                                    <li><a href="khóa học tiểu học.html">TIỂU HỌC</a></li>
+                                    <li><a href="toeic.html">TOEIC</a></li>
+                                   
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li><a href="liên hệ.html"><i class="fa-solid fa-envelope"></i>LIÊN HỆ</a></li>
+                        <li><a href="game.html"><i class="fa-solid fa-gamepad"></i></i>MINI GAME</a></li>
+                    </ul>
+                </div>
+        </div>
+    </section>
+    <div class="tieuDe">
+        <a href=""><h3>MINI GAME</h3></a>
+        <i class="fa-solid fa-arrow-right" style="padding-top:0.5%; padding-left:1%"></i>
+        <a href=""><h3 style="padding-left:15px">SNAKE</h3></a>
+        
+    </div>
+    
+        <div id="score"> 0</div>
+        <canvas id="snakeboard" width="400" height="400"></canvas>
+    
+       
+   
+    
+
+  </body>
+
+  <script>
+    const board_border = 'black';
+    const board_background = "white";
+    const snake_col = 'lightblue';
+    const snake_border = 'darkblue';
+    
+    let snake = [
+      {x: 200, y: 200},
+      {x: 190, y: 200},
+      {x: 180, y: 200},
+      {x: 170, y: 200},
+      {x: 160, y: 200}
+    ]
+
+    let score = 0;
+  
+    let changing_direction = false;
+   
+    let food_x;
+    let food_y;
+    let dx = 10;
+   
+    let dy = 0;
+    
+    
+    
+    const snakeboard = document.getElementById("snakeboard");
+   
+    const snakeboard_ctx = snakeboard.getContext("2d");
+   
+    main();
+
+    gen_food();
+
+    document.addEventListener("keydown", change_direction);
+    
+    
+    function main() {
+
+        if (has_game_ended()) return;
+
+        changing_direction = false;
+        setTimeout(function onTick() {
+        clear_board();
+        drawFood();
+        move_snake();
+        drawSnake();
+       
+        main();
+      }, 100)
+    }
+    
+    
+    function clear_board() {
+      
+      snakeboard_ctx.fillStyle = board_background;
+     
+      snakeboard_ctx.strokestyle = board_border;
+     
+      snakeboard_ctx.fillRect(0, 0, snakeboard.width, snakeboard.height);
+    
+      snakeboard_ctx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
+    }
+    
+    
+    function drawSnake() {
+    
+      snake.forEach(drawSnakePart)
+    }
+
+    function drawFood() {
+      snakeboard_ctx.fillStyle = 'lightgreen';
+      snakeboard_ctx.strokestyle = 'darkgreen';
+      snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
+      snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
+    }
+    
+    // Draw one snake part
+    function drawSnakePart(snakePart) {
+
+    
+      snakeboard_ctx.fillStyle = snake_col;
+     
+      snakeboard_ctx.strokestyle = snake_border;
+     
+      snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+     
+      snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+    }
+
+    function has_game_ended() {
+      for (let i = 4; i < snake.length; i++) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
+      }
+      const hitLeftWall = snake[0].x < 0;
+      const hitRightWall = snake[0].x > snakeboard.width - 10;
+      const hitToptWall = snake[0].y < 0;
+      const hitBottomWall = snake[0].y > snakeboard.height - 10;
+      return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+    }
+
+    function random_food(min, max) {
+      return Math.round((Math.random() * (max-min) + min) / 10) * 10;
+    }
+
+    function gen_food() {
+      
+      food_x = random_food(0, snakeboard.width - 10);
+      
+      food_y = random_food(0, snakeboard.height - 10);
+     
+      snake.forEach(function has_snake_eaten_food(part) {
+        const has_eaten = part.x == food_x && part.y == food_y;
+        if (has_eaten) gen_food();
+      });
+    }
+
+    function change_direction(event) {
+      const LEFT_KEY = 37;
+      const RIGHT_KEY = 39;
+      const UP_KEY = 38;
+      const DOWN_KEY = 40;
+      
+   
+    
+      if (changing_direction) return;
+      changing_direction = true;
+      const keyPressed = event.keyCode;
+      const goingUp = dy === -10;
+      const goingDown = dy === 10;
+      const goingRight = dx === 10;
+      const goingLeft = dx === -10;
+      if (keyPressed === LEFT_KEY && !goingRight) {
+        dx = -10;
+        dy = 0;
+      }
+      if (keyPressed === UP_KEY && !goingDown) {
+        dx = 0;
+        dy = -10;
+      }
+      if (keyPressed === RIGHT_KEY && !goingLeft) {
+        dx = 10;
+        dy = 0;
+      }
+      if (keyPressed === DOWN_KEY && !goingUp) {
+        dx = 0;
+        dy = 10;
+      }
+    }
+
+    function move_snake() {
+      
+      const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+     
+      snake.unshift(head);
+      const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
+      if (has_eaten_food) {
+        
+        score += 10;
+        
+        document.getElementById('score').innerHTML = score;
+       
+        gen_food();
+      } else {
+       
+        snake.pop();
+      }
+    }
+    
+  </script>
+   <footer class="footer">
+    <div class="container" >
+        <div class="row">
+            <div class="footer-col">
+                <h4>Công ty</h4>
+                <ul>
+                    <li><a href="về chúng tôi.html">Về chúng tôi</a></li>
+                    
+                    <li><a href="chính sách bảo mật.html">Chính sách bảo mật</a></li>
+                    <li><a href="chương trình liên kết.html">Chương trình liên kết</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ trợ</h4>
+                <ul>
+                    <li><a href="liên hệ.html">Chăm sóc khách hàng</a></li>
+                   
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Khóa học</h4>
+                <ul>
+                    <li><a href="khóa học ielts.html">IELTS</a></li>
+                    <li><a href="khoá học tiểu học.html">Tiểu học</a></li>
+                    <li><a href="khóa học phổ thông.html">Trung học phổ thông</a></li>
+                    <li><a href="khóa học đại học.html">Đại học</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Theo dõi</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>
